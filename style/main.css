@@ -1,0 +1,19 @@
+:root {
+    --background: oklch(0.9215 0.0212 51);
+    --text: oklch(0.219 0.0003 51);
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--background);
+    color: var(--text);
+}
+
+main {
+    margin: auto;
+    padding: 0 6em;
+    max-width: 900px;
+}
