@@ -14,10 +14,10 @@ const views = {
 
 };
 
-export function render(viewName, data = null) {
+export async function render(viewName, data = null) {
     currentView = views[viewName];
     contentEl.innerHTML = currentView.getHtml(data);
-    currentView.init(data);
+    await currentView.init(data);
 }
 
 document.addEventListener("DOMContentLoaded", () => {

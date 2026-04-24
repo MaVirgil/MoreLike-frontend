@@ -126,11 +126,11 @@ export const searchView = {
             const movieCard = document.createElement('div');
             movieCard.className = 'movie-card';
             movieCard.innerHTML = `
-                <img class="movie-card-poster" src="${IMAGE_BASE_URL}/${movie.poster_path}" alt="poster for movie titled '${movie.title}'">
+                <img class="movie-card-poster" src="${IMAGE_BASE_URL}/${movie.poster_path}" alt="poster">
                 <div class="movie-card-info">
                     <p class="movie-title">${movie.title}</p>
                     <p class="movie-release-date">Release Date: ${movie.release_date}</p>
-                    <p class="movie-score">Score: ${movie.vote_average}</p>
+                    <p class="movie-score">★ ${movie.vote_average}</p>
                     <button id="select-btn-${movie.id}" class="similar-movies-btn">Get similar movies</button>
                 </div>
             `
@@ -153,26 +153,13 @@ export const searchView = {
         console.log(`finding movies with similar themes to ${title}...`);
 
         try {
-            // const apiUrl = API_BASE_URL + `/recommend?query=${title}`;
-            //
-            // const response = await apiRequest(apiUrl);
-            //
-            // console.log(response);
+            const apiUrl = API_BASE_URL + `/recommend?query=${title}`;
 
-            const response = [
-                {
-                    "title": "test Movie",
-                    "imdb_id": "tt11111",
-                },
-                {
-                    "title": "test movie 2",
-                    "imdb_id": "tt22222",
-                }
-            ]
+            const response = await apiRequest(apiUrl);
 
             const data = {
                 "based_on": title,
-                "recommendations": response,
+                "movies": response,
             }
 
             render('recommendationView', data);

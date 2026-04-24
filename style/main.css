@@ -212,6 +212,37 @@ label {
     display: block;
 }
 
+.recommendations-container {
+    margin-top: 2rem;
+}
+
+.recommendations-header {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin: 0 0 1.25rem;
+    text-align: center;
+}
+
+.movie-reference {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.movie-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.25rem 0;
+}
+
+.movie-description {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 0.25rem !important;
+    flex: 1;
+}
+
 @media (max-width: 640px) {
 
     .input-wrapper {
