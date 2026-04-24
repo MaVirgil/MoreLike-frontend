@@ -8,6 +8,7 @@ export const searchView = {
             <div class="container">
             
                 <div>
+                
                     <label for="movie-search">Search for a movie to get started:</label>
                     <div class="input-wrapper">
                         <input id="search-input" class="input-field" type="text" placeholder="ex. Interstellar">
@@ -63,7 +64,11 @@ export const searchView = {
 
             console.log(response);
 
-            await this.updateResults(response.results);
+            const movies = response.results.filter(movie => movie.vote_average > 0);
+
+            console.log(movies);
+
+            await this.updateResults(movies);
         } catch (error) {
             console.error(error);
             alert('Something went wrong, please try again later');
@@ -132,7 +137,7 @@ export const searchView = {
 
             resultsEl.appendChild(movieCard);
 
-            document.getElementById(`select-btn-${movie.id}`).addEventListener("click", () => console.log(`Getting movies similar to: ${movie.title}(${movie.release_date})`));
+            document.getElementById(`select-btn-${movie.id}`).addEventListener("click", () => this.loadRecommendedMovies(`${movie.title}(${movie.release_date.slice(0,4)})`));
         });
     }
 }
