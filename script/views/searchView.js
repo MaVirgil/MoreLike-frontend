@@ -137,7 +137,49 @@ export const searchView = {
 
             resultsEl.appendChild(movieCard);
 
-            document.getElementById(`select-btn-${movie.id}`).addEventListener("click", () => this.loadRecommendedMovies(`${movie.title}(${movie.release_date.slice(0,4)})`));
+            document.getElementById(`select-btn-${movie.id}`).addEventListener("click", () => this.loadRecommendedMovies(`${movie.title} (${movie.release_date.slice(0,4)})`));
         });
+    },
+
+    async loadRecommendedMovies(title) {
+        console.log(`getting recommended films for title: ${title}`);
+
+        if (!title) {
+            console.error('No movie title provided');
+            alert('something went wrong, please try again later');
+            return;
+        }
+
+        console.log(`finding movies with similar themes to ${title}...`);
+
+        try {
+            // const apiUrl = API_BASE_URL + `/recommend?query=${title}`;
+            //
+            // const response = await apiRequest(apiUrl);
+            //
+            // console.log(response);
+
+            const response = [
+                {
+                    "title": "test Movie",
+                    "imdb_id": "tt11111",
+                },
+                {
+                    "title": "test movie 2",
+                    "imdb_id": "tt22222",
+                }
+            ]
+
+            const data = {
+                "based_on": title,
+                "recommendations": response,
+            }
+
+            render('recommendationView', data);
+        } catch (error) {
+            console.error(error);
+            alert('Something went wrong, please try again later');
+            render('searchView');
+        }
     }
 }
