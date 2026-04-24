@@ -130,7 +130,7 @@ export const searchView = {
                 <div class="movie-card-info">
                     <p class="movie-title">${movie.title}</p>
                     <p class="movie-release-date">Release Date: ${movie.release_date}</p>
-                    <p class="movie-score">★ ${movie.vote_average}</p>
+                    <p class="movie-score">${movie.vote_average}★</p>
                     <button id="select-btn-${movie.id}" class="similar-movies-btn">Get similar movies</button>
                 </div>
             `

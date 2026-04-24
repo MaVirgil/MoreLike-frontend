@@ -60,7 +60,7 @@ export const recommendationView = {
                 <div class="movie-card-content">
                     <p class="movie-title">${movie.title}</p>
                     <p class="movie-release-date">${movie.release_date}</p>
-                    <p class="movie-score">★ ${movie.vote_average}</p>
+                    <p class="movie-score">${movie.vote_average}★</p>
                     <p class="movie-description">${movie.overview}</p>
                     <button onclick="window.open('https://www.imdb.com/title/${movie.imdb_id}','_blank')">
                         View on IMDb
