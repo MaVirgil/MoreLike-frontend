@@ -48,6 +48,15 @@ main {
     width: 100%;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
 .container {
     background: var(--surface);
     border-radius: 16px;
@@ -75,7 +84,6 @@ main {
 .movie-card-poster {
     border-radius: 12px;
     max-width: 154px;
-    height: auto;
 }
 
 .movie-card p {
@@ -242,6 +250,38 @@ label {
     color: var(--text-muted);
     font-size: 0.9rem;
     margin-top: 0.25rem;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+}
+
+footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: var(--accent);
+}
+
+.footer-tmdb {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.footer-divider {
+    color: var(--text);
 }
 
 @media (max-width: 640px) {
