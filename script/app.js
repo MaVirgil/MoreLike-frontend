@@ -2,7 +2,7 @@ import {searchView} from "./views/searchView.js";
 import {loadView} from "./views/loadView.js";
 import {recommendationView} from "./views/recommendationView.js";
 
-export const API_BASE_URL = 'http://localhost:8080';
+export const API_BASE_URL = 'https://api.morelike.mavirgil.com';
 let currentView = 'searchView';
 const contentEl = document.getElementById('app');
 
