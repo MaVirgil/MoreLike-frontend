@@ -1,8 +1,8 @@
 export const loadView = {
     getHtml() {
         return `
-            <div class="loading">
-                <p id="loading-glyph">...</p>
+            <div class="loader-container">
+                <div class="loader"></div>
             </div>
         `
     },

@@ -152,6 +152,8 @@ export const searchView = {
 
         console.log(`finding movies with similar themes to ${title}...`);
 
+        await render('loadView')
+
         try {
             const apiUrl = API_BASE_URL + `/recommend?query=${title}`;
 
