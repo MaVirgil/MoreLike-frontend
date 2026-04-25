@@ -87,7 +87,8 @@ export const searchView = {
             return;
         }
 
-        const imdbId = imdbLink.split("/")[4];
+        const imdbUrlList = imdbLink.split("/");
+        const imdbId = imdbUrlList[(imdbUrlList.indexOf('title')) + 1];
 
         try {
             const apiUrl = API_BASE_URL + `/movie/find/${imdbId}`;
