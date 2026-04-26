@@ -1,11 +1,12 @@
 import {API_BASE_URL, render} from "../app.js";
 import {apiRequest} from "../apiRequest.js";
+import {displayError} from "../error.js";
 
 export const searchView = {
 
     getHtml() {
         return `
-            <div class="container">
+            <div id="search-container" class="container">
             
                 <div>
                 
@@ -40,9 +41,17 @@ export const searchView = {
     attachListeners() {
 
         const searchBtnEl = document.getElementById('search-btn');
+        const searchInputEl = document.getElementById('search-input');
+
         const submitBtnEl = document.getElementById('submit-btn');
 
         searchBtnEl.addEventListener("click", () => this.handleSearch());
+        searchInputEl.addEventListener('keydown', (event) => {
+            if (event.key === "Enter") {
+                searchBtnEl.click();
+            }
+        });
+
         submitBtnEl.addEventListener("click", () => this.handleImdbSearch());
     },
 
@@ -71,8 +80,7 @@ export const searchView = {
             await this.updateResults(movies);
         } catch (error) {
             console.error(error);
-            alert('Something went wrong, please try again later');
-            render('searchView');
+            displayError(document.getElementById('search-container'), error.message);
         }
 
     },
@@ -100,8 +108,7 @@ export const searchView = {
             this.updateResults(result.movie_results);
         } catch (error) {
             console.error(error);
-            alert('Something went wrong, please try again later');
-            render('searchView');
+            displayError(document.getElementById('search-container'), error.message);
         }
     },
 
@@ -115,7 +122,7 @@ export const searchView = {
             console.log('No results found!');
 
             resultsEl.innerHTML = `
-                <p class="no-results-message">No results found...</p>
+                <h3 class="no-results-message">No results found...</h3>
             `;
 
             return;
@@ -143,15 +150,14 @@ export const searchView = {
     },
 
     async loadRecommendedMovies(title) {
+
         console.log(`getting recommended films for title: ${title}`);
 
         if (!title) {
             console.error('No movie title provided');
-            alert('something went wrong, please try again later');
+            displayError(document.getElementById('search-container'));
             return;
         }
-
-        console.log(`finding movies with similar themes to ${title}...`);
 
         await render('loadView')
 
@@ -159,6 +165,8 @@ export const searchView = {
             const apiUrl = API_BASE_URL + `/recommend?query=${title}`;
 
             const response = await apiRequest(apiUrl);
+
+            console.log(response);
 
             const data = {
                 "based_on": title,
@@ -168,8 +176,8 @@ export const searchView = {
             render('recommendationView', data);
         } catch (error) {
             console.error(error);
-            alert('Something went wrong, please try again later');
             render('searchView');
+            displayError(document.getElementById('search-container'), error.message);
         }
     }
 }

@@ -5,6 +5,7 @@
     --border: oklch(0.85 0.01 220);
     --accent: oklch(0.6 0.15 250);
     --accent-hover: oklch(0.55 0.18 250);
+    --warning: oklch(0.8947 0.0544 28.31);
     --surface: oklch(0.99 0.002 180);
     --shadow: oklch(0 0 0 / 0.08);
 }
@@ -73,6 +74,10 @@ main {
     gap: 1em;
 }
 
+.no-results-message {
+    text-align: center;
+}
+
 .movie-card {
     display: flex;
     gap: .7em;
@@ -118,18 +123,6 @@ main {
 
 .movie-release-date, .movie-score {
     color: var(--text-muted);
-}
-
-.search-section {
-    margin-bottom: 2rem;
-}
-
-.search-group {
-    margin-bottom: 2rem;
-}
-
-.search-group:last-child {
-    margin-bottom: 0;
 }
 
 label {
@@ -211,18 +204,6 @@ label {
     font-weight: 500;
 }
 
-.results-section {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-    min-height: 200px;
-    display: none;
-}
-
-.results-section.visible {
-    display: block;
-}
-
 .recommendations-container {
     margin-top: 2rem;
 }
@@ -233,11 +214,6 @@ label {
     color: var(--text-muted);
     margin: 0 0 1.25rem;
     text-align: center;
-}
-
-.movie-reference {
-    color: var(--text);
-    font-weight: 600;
 }
 
 .movie-card-content {
@@ -268,6 +244,28 @@ label {
     display: inline-block;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
+}
+
+.error-container {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background-color: var(--warning);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px var(--shadow);
+    color: var(--text);
+}
+
+.error-container h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: oklch(0.42 0.14 25);
+}
+
+.error-container p {
+    margin: 0.5rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
 }
 
 @keyframes rotation {
