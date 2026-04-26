@@ -122,7 +122,7 @@ export const searchView = {
             console.log('No results found!');
 
             resultsEl.innerHTML = `
-                <p class="no-results-message">No results found...</p>
+                <h3 class="no-results-message">No results found...</h3>
             `;
 
             return;

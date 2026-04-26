@@ -21,13 +21,7 @@ export const recommendationView = {
         await this.populateRecommendedMovies(data.movies);
     },
 
-    attachListeners() {
-      document.addEventListener("DOMContentLoaded", () => this.populateRecommendedMovies(data.movies))
-    },
-
     async populateRecommendedMovies(movies) {
-
-        console.log('populate movies called!');
 
         const resultContainerEl = document.getElementById('result-container');
 
