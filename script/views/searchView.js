@@ -40,9 +40,17 @@ export const searchView = {
     attachListeners() {
 
         const searchBtnEl = document.getElementById('search-btn');
+        const searchInputEl = document.getElementById('search-input');
+
         const submitBtnEl = document.getElementById('submit-btn');
 
         searchBtnEl.addEventListener("click", () => this.handleSearch());
+        searchInputEl.addEventListener('keydown', (event) => {
+            if (event.key === "Enter") {
+                searchBtnEl.click();
+            }
+        });
+
         submitBtnEl.addEventListener("click", () => this.handleImdbSearch());
     },
 
