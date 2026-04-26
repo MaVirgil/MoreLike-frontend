@@ -1,5 +1,6 @@
 import {API_BASE_URL, render} from "../app.js";
 import {apiRequest} from "../apiRequest.js";
+import {displayError} from "../error.js";
 
 export const recommendationView = {
 
@@ -45,8 +46,9 @@ export const recommendationView = {
                 moviesWithData.push(result);
             }
         } catch (error) {
-            console.error('something went wrong when fetching recommended movies from imdb');
+            console.error(error);
             render('searchView');
+            displayError(document.getElementById('search-container'), error.message);
         }
 
         moviesWithData.forEach(movie => {

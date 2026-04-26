@@ -36,7 +36,6 @@ export const searchView = {
 
     init() {
         this.attachListeners();
-        displayError(document.getElementById('search-container'));
     },
 
     attachListeners() {
