@@ -5,6 +5,7 @@
     --border: oklch(0.85 0.01 220);
     --accent: oklch(0.6 0.15 250);
     --accent-hover: oklch(0.55 0.18 250);
+    --warning: oklch(0.8947 0.0544 28.31);
     --surface: oklch(0.99 0.002 180);
     --shadow: oklch(0 0 0 / 0.08);
 }
@@ -273,9 +274,7 @@ label {
 .error-container {
     margin-top: 2rem;
     padding: 1rem 1.25rem;
-    background: color-mix(in oklch, var(--surface) 88%, crimson 12%);
-    border: 1px solid color-mix(in oklch, var(--border) 70%, crimson 30%);
-    border-left: 4px solid oklch(0.62 0.18 25);
+    background-color: var(--warning);
     border-radius: 12px;
     box-shadow: 0 4px 16px var(--shadow);
     color: var(--text);
