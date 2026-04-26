@@ -270,6 +270,30 @@ label {
     animation: rotation 1s linear infinite;
 }
 
+.error-container {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    background: color-mix(in oklch, var(--surface) 88%, crimson 12%);
+    border: 1px solid color-mix(in oklch, var(--border) 70%, crimson 30%);
+    border-left: 4px solid oklch(0.62 0.18 25);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px var(--shadow);
+    color: var(--text);
+}
+
+.error-container h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: oklch(0.42 0.14 25);
+}
+
+.error-container p {
+    margin: 0.5rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
 @keyframes rotation {
     0% {
         transform: rotate(0deg);
